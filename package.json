@@ -1,0 +1,46 @@
+{
+  "name": "LooseBits",
+  "version": "1.0.0",
+  "description": "LooseBits",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "app:dir": "electron-builder --dir --win --mac --linux --x64",
+    "app:dist": "electron-builder --win --mac --linux --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelomer/LooseBits.git"
+  },
+  "build": {
+    "appId": "com.pixelomer.LooseBits",
+    "mac": {
+      "category": "public.app-category.games",
+      "identity": null,
+      "target": "zip"
+    },
+    "win": {
+      "target": "portable",
+      "verifyUpdateCodeSignature": false
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "keywords": [
+    "game",
+    "electron"
+  ],
+  "author": "pixelomer",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/pixelomer/LooseBits/issues"
+  },
+  "homepage": "https://github.com/pixelomer/LooseBits#readme",
+  "devDependencies": {
+    "electron": "^19.0.9",
+    "electron-builder": "^23.1.0"
+  },
+  "dependencies": {}
+}

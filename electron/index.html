@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<main id="game">
+			<div id="moving">
+				<div id="background"></div>
+				<canvas id="creatures"></canvas>
+				<canvas id="dead-pixels"></canvas>
+			</div>
+			<div id="static">
+				<div id="hud" class="ingame">
+					<b>bugs killed: <span id="kill-counter"><span id="kill-count">0</span>/<span id="total-bugs">0</span></span>
+					<span id="combo"></span>
+					<span id="hud-right">score: <span id="score">0</span></span></b>
+				</div>
+
+				<!-- Target layout is done with a table -->
+				<!-- Yes, I hate it as much as you do -->
+				<table id="target" class="centered ingame">
+					<tr class="target-sr">
+						<td id="target-tl" class="target-sc"></td>
+						<td class="target-dark"></td>
+						<td class="target-dark"></td>
+					</tr>
+					<tr>
+						<td class="target-light"></td>
+						<td id="target-center"><img src="assets/target.png"></td>
+						<td class="target-dark"></td>
+					</tr>
+					<tr class="target-sr">
+						<td class="target-light"></td>
+						<td class="target-light"></td>
+						<td id="target-br" class="target-sc"></td>
+					</tr>
+				</table>
+
+				<div id="flash" class="ingame"></div>
+
+				<div id="pause-screen" class="not-ingame"></div>
+
+				<div id="home" class="centered first-game menu">
+					<b>* move window to aim<br>
+					* press space to shoot<br>
+					* aim for the head<br>
+					<br>
+					press ENTER to start</b>
+				</div>
+
+				<div id="gameover-menu" class="centered replay menu">
+					<b><span id="gameover-message"></span><br>
+					<br>
+					press ENTER to try again<br>
+					press Q to quit</b>
+				</div>
+			</div>
+		</main>
+		<script src="game/random.js" type="text/javascript"></script>
+		<script src="game/canvas-movement.js" type="text/javascript"></script>
+		<script src="game/border.js" type="text/javascript"></script>
+		<script src="game/background.js" type="text/javascript"></script>
+		<script src="game/creatures.js" type="text/javascript"></script>
+		<script src="game/dead-pixels.js" type="text/javascript"></script>
+		<script src="game/window-movement.js" type="text/javascript"></script>
+		<script src="game/input.js" type="text/javascript"></script>
+		<script src="game/shoot-effect.js" type="text/javascript"></script>
+		<script src="game/hud.js" type="text/javascript"></script>
+	</body>
+</html>
