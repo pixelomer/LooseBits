@@ -3,7 +3,13 @@ body {
 	padding: 0;
 	background-color: black;
   image-rendering: pixelated;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
+	cursor: default;
   image-rendering: crisp-edges;
 	font-family: "Courier New", sans-serif;
 }

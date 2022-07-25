@@ -4,7 +4,6 @@
 		/** @type {HTMLCanvasElement} */
 		const canvas = document.getElementById("creatures");
 		const context = canvas.getContext("2d");
-		context.fillStyle = "rgba(255, 0, 0, 1.0)";
 
 		function draw(x, y, size) {
 			context.fillRect(x, y, size, size);
@@ -21,10 +20,10 @@
 		 */
 		function newCreature(x, y) {
 			if (x == null) {
-				x = random(100, screen.availWidth-100);
+				x = random(100, getRealWidth()-100);
 			}
 			if (y == null) {
-				y = random(100, screen.availHeight-100);
+				y = random(100, getRealHeight()-100);
 			}
 			const length = random(7, 15);
 			const direction = {
@@ -113,6 +112,7 @@
 				context.restore();
 
 				// Draw neck
+				context.fillStyle = "rgba(255, 0, 0, 1.0)";
 				for (let i = creature.body.length-1; ((i >= creature.body.length-3) && (i >= 0)); i--) {
 					const { x, y } = creature.body[i];
 					draw(x, y, creature.size);
@@ -141,8 +141,8 @@
 							newDirection[coordinate] = random(-1,1)
 						}
 					}
-					decideDirection("x", screen.availWidth);
-					decideDirection("y", screen.availHeight);
+					decideDirection("x", getRealWidth());
+					decideDirection("y", getRealHeight());
 					if ((newDirection.y === 0) && (newDirection.x === 0)) {
 						newDirection[random(0, 1) ? "x" : "y"] = random(0, 1) ? 1 : -1;
 					}

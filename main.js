@@ -1,10 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
-function electronFile(name) {
-	return path.resolve(app.getAppPath(), "electron", name);
-}
-
 async function main() {
 	await app.whenReady();
 
@@ -15,14 +11,11 @@ async function main() {
 		resizable: true,
 		webPreferences: {
 			devTools: false,
-			preload: electronFile("preload.js")
+			preload: path.resolve(app.getAppPath(), "preload.js")
 		}
 	});
 	ipcMain.handle("quit", () => app.quit());
 	ipcMain.handle("window:move", (event, x, y) => {
-		if ((typeof x !== 'number') || (typeof y !== 'number')) {
-			throw new Error("x and y must be numbers");
-		}
 		const [oldX, oldY] = win.getPosition();
 		const newPosition = {
 			x: oldX+x,
@@ -33,7 +26,7 @@ async function main() {
 		}
 		return newPosition;
 	})
-	win.loadFile(electronFile("index.html"));
+	win.loadFile(path.resolve(app.getAppPath(), "static", "game", "index.html"));
 }
 
 main();

@@ -1,0 +1,52 @@
+body {
+	background-image: url("https://unsplash.it/1920/1080/?random");
+	background-repeat: no-repeat;
+	background-color: black;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#game-window {
+	position: absolute;
+	overflow: hidden;
+	top: 100px;
+	left: 100px;
+	margin: 0;
+	padding: 0;
+	width: 394px;
+	height: 394px;
+	border-radius: 8px;
+	border: 1px black solid;
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+#game-window > iframe {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	top: -4px;
+	left: -4px;
+	width: 400px;
+	height: 400px;
+}
+
+#unsplash-notice {
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+a {
+	color: lightblue;
+	text-decoration: none;
+}
